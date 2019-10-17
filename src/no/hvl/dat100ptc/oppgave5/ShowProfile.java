@@ -6,6 +6,7 @@ import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import no.hvl.dat100ptc.oppgave2.GPSData;
 import no.hvl.dat100ptc.oppgave2.GPSDataConverter;
 import no.hvl.dat100ptc.oppgave2.GPSDataFileReader;
+import no.hvl.dat100ptc.oppgave3.GPSUtils;
 import no.hvl.dat100ptc.oppgave4.GPSComputer;
 
 import javax.swing.JOptionPane;
@@ -47,8 +48,16 @@ public class ShowProfile extends EasyGraphics {
 		// ybase indicates the position on the y-axis where the columns should start
 		
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		
+		double [] elevTab = new double [gpspoints.length];
+		
+		for(int i= 0; i<gpspoints.length-1; i++) {
+			
+			elevTab[i] = gpspoints[i].getElevation();
+		}
+		
+		
+		ybase= (int) Math.round(GPSUtils.findMin(elevTab));
 	
 		// TODO - SLUTT
 	}
